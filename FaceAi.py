@@ -2,13 +2,17 @@ import streamlit as st
 import io
 import requests
 from PIL import Image, ImageDraw, ImageFont
+import json
 
 
 st.title("顔認識AIアプリ")
 
-#サブスクリプションキーの入力
-KEY = "67304730480c4a0d854ded995920a750"
-assert KEY
+#サブスクリプションキーをjsonファイルから取得
+with open('secret.json') as f:
+    secret_json = json.load(f)
+
+subscription_key = secret_json['SUBSCRIPTION_KEY']
+assert subscription_key
 
 face_api_url = "https://20201211faceapi.cognitiveservices.azure.com/face/v1.0/detect"
 
@@ -28,7 +32,7 @@ if upload_file is not None:
 #------Apiのメイン機能--------
     headers = {
         'Content-Type': 'application/octet-stream',
-        'Ocp-Apim-Subscription-Key': KEY}
+        'Ocp-Apim-Subscription-Key': subscription_key}
 
     params = {
         'returnFaceId': 'true',
