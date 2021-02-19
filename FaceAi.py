@@ -18,7 +18,8 @@ face_api_url = "https://20201211faceapi.cognitiveservices.azure.com/face/v1.0/de
 
 st.write("画像選択")
 
-upload_file = st.file_uploader("choose image",type = "jpg")
+#upload_file = st.file_uploader("choose image",type = "jpg")
+upload_file = st.file_uploader("choose image")
 
 #画像がアップロードされていれば実行する
 if upload_file is not None:
