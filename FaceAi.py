@@ -59,14 +59,16 @@ if upload_file is not None:
         str_age = str(age)
         str_gender = str(gender)
 
-        font_size = 20
+        #font_size = 40
 
         draw_x = rect['left'] - 15
         draw_y = rect['top'] - 45
         text = "age : " + str_age + "\n" + "gender : " + str_gender
 
         draw = ImageDraw.Draw(img)
-        font = ImageFont.truetype('/Library/Fonts/Arial Narrow Bold.ttf', font_size)
-        draw.text((draw_x, draw_y), text, font=font, fill=(255, 0, 0, 128))
+        #font = ImageFont.truetype('/Library/Fonts/Arial Narrow Bold.ttf', font_size)
+
+        draw.text((draw_x, draw_y), text, font=None, fill=(255, 0, 0, 128))
 
     st.image(img,caption="image",use_column_width=True)
+
